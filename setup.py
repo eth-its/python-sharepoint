@@ -1,27 +1,32 @@
-from distutils.core import setup
+import setuptools
 
 __version__ = '0.4.3'
 
 packages = ['sharepoint',
             'sharepoint.lists']
 
-setup(name='sharepoint',
-      description='Module and command-line utility to get data out of SharePoint',
-      long_description=open('README.rst').read(),
-      author='IT Services, University of Oxford',
-      author_email='opendata@oucs.ox.ac.uk',
-      version=__version__,
-      packages=packages,
-      scripts=['bin/sharepoint'],
-      url='https://github.com/ox-it/python-sharepoint',
-      classifiers=['Development Status :: 4 - Beta',
-                   'Environment :: Console',
-                   'Intended Audience :: System Administrators',
-                   'Intended Audience :: Developers',
-                   'Intended Audience :: Information Technology',
-                   'Operating System :: OS Independent',
-                   'Topic :: Internet :: WWW/HTTP',
-                   'Topic :: Office/Business :: Groupware'],
-      keywords=['SharePoint'],
-      install_requires=['lxml', 'six'])
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
+setuptools.setup(
+    name="sharepoint-eth-its",
+    version=__version__,
+    author="IT Services, University of Oxford",
+    author_email="opendata@oucs.ox.ac.uk",
+    maintainer='Graham Pugh',
+    maintainer_email='g.r.pugh+github@gmail.com',
+    description="Module and command-line utility to get data out of SharePoint",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/eth-its/python-sharepoint",
+    packages=packages,
+    scripts=['bin/sharepoint'],
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    python_requires='>=3.6',
+    keywords=['SharePoint'],
+    install_requires=['lxml', 'six'],
+)
